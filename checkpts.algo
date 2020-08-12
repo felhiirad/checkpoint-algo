@@ -1,0 +1,38 @@
+ALGORITHM  check_pts_algo
+VAR
+ a : STRING := "";
+ count_voy : INTEGER := 0;
+ count_char : INTEGER := 0;
+ count_word : INTEGER := 1;
+ x : INTEGER := 0;
+BEGIN
+// lire la phrase telque la dernier caracter doit etre un "."
+
+
+REPEAT
+    write("donner un phrase telque la derniere caractere doit etre un un pts")
+    Read(a);
+UNTIL (a[a.length-1]=".")
+//nbr de caracter..nbr voy..nbr de mot
+
+
+WHILE (x<a.length) DO
+IF (a[x] in ([a..z] or [A..Z])) THEN
+    count_char:=count_char+1;
+    IF (a[x]=("a" or "e" or "i" or "y" or "o" or "u")) THEN
+        count_voy:=count_voy+1;
+        
+    END_IF
+    
+ELSE_IF (a[x]=" ") THEN
+    count_word:=count_word+1;
+
+END_IF
+    x:=x+1;
+END_WHILE
+write("la nbr de caracter est",count_char);
+write("la nbr de voiyel est", count_voy);
+write("le nbr de mots est",count_word)
+
+
+END
